@@ -1,10 +1,10 @@
 try:
-    import HMMmethodsDinamic
+    import HMMmethodsDynamic
 
     print("✓ Librería importada correctamente")
 
     # Crear instancia del analizador
-    analyzer = HMMmethodsDinamic.HMM_DNA_Analyzer()
+    analyzer = HMMmethodsDynamic.HMM_DNA_Analyzer()
     print("✓ Analizador creado")
 
     # Probar reconocimiento básico
@@ -80,8 +80,8 @@ try:
 
     # Probar método con parámetros de salida
     print("\\n=== MÉTODO CON PARÁMETROS DE SALIDA ===")
-    estados_out = HMMmethodsDinamic.StringVector()
-    probs_out = HMMmethodsDinamic.DoubleVector()
+    estados_out = HMMmethodsDynamic.StringVector()
+    probs_out = HMMmethodsDynamic.DoubleVector()
 
     analyzer.reconocimiento_output(sequence, estados_out, probs_out)
 
@@ -98,7 +98,7 @@ try:
 except ImportError as e:
     print(f"❌ Error importando la librería: {e}")
     print(
-        "Verifica que _HMMmethodsDinamic.so y HMMmethodsDinamic.py estén en el directorio actual"
+        "Verifica que _HMMmethodsDynamic.so y HMMmethodsDynamic.py estén en el directorio actual"
     )
 
 except Exception as e:

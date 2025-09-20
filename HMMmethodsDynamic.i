@@ -1,5 +1,5 @@
 
-%module HMMmethodsDinamic
+%module HMMmethodsDynamic
 
 %{
 #include "HMMmethods.h"

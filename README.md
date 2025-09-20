@@ -1,6 +1,6 @@
-# HMMmethodsDinamic - Python Wrapper con SWIG
+# HMMmethodsDynamic - Python Wrapper con SWIG
 
-Este proyecto genera un **wrapper en Python** para la librería `HMMmethodsDinamic` escrita en C++, utilizando [SWIG](http://www.swig.org/).
+Este proyecto genera un **wrapper en Python** para la librería `HMMmethodsDynamic` escrita en C++, utilizando [SWIG](http://www.swig.org/).
 
 ---
 
@@ -24,13 +24,13 @@ sudo apt install swig g++ python3-dev
 Ejecuta el siguiente comando para generar los archivos de interfaz entre C++ y Python:
 
 ```bash
-swig -c++ -python HMMmethodsDinamic.i
+swig -c++ -python HMMmethodsDynamic.i
 ```
 
 Esto generará:
 
-- `HMMmethodsDinamic_wrap.cxx`
-- `HMMmethodsDinamic.py`
+- `HMMmethodsDynamic_wrap.cxx`
+- `HMMmethodsDynamic.py`
 
 ---
 
@@ -39,7 +39,7 @@ Esto generará:
 Compila el archivo generado por SWIG:
 
 ```bash
-g++ -O2 -fPIC -c HMMmethodsDinamic_wrap.cxx -I/usr/include/python3.10
+g++ -O2 -fPIC -c HMMmethodsDynamic_wrap.cxx -I/usr/include/python3.10
 ```
 
 ---
@@ -49,7 +49,7 @@ g++ -O2 -fPIC -c HMMmethodsDinamic_wrap.cxx -I/usr/include/python3.10
 Crea la librería compartida que Python podrá importar como módulo:
 
 ```bash
-g++ -shared HMMmethodsDinamic_wrap.o -o _HMMmethodsDinamic.so
+g++ -shared HMMmethodsDynamic_wrap.o -o _HMMmethodsDynamic.so
 ```
 
 ---
@@ -65,7 +65,7 @@ python3 test_hmm.py
 Si todo está correcto, podrás importar y usar el módulo:
 
 ```python
-import HMMmethodsDinamic
+import HMMmethodsDynamic
 ```
 
 ---
