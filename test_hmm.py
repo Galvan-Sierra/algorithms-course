@@ -8,7 +8,7 @@ try:
     print("✓ Analizador creado")
 
     # Probar reconocimiento básico
-    print("\\n=== PRUEBA BÁSICA ===")
+    print("\n=== PRUEBA BÁSICA ===")
     sequence = "ATGCAT"
     print(f"Secuencia: {sequence}")
 
@@ -31,7 +31,7 @@ try:
     print(f"Probabilidad total: {prob_total:.6f}")
 
     # Probar análisis completo
-    print("\\n=== ANÁLISIS COMPLETO ===")
+    print("\n=== ANÁLISIS COMPLETO ===")
     analysis_result = analyzer.analizar_regiones(sequence)
 
     print(f"Secuencia original: {analysis_result.secuencia}")
@@ -44,7 +44,7 @@ try:
     print(f"Probabilidad total: {analysis_result.probabilidad_total:.6f}")
 
     # Mostrar regiones codificantes
-    print("\\nRegiones codificantes:")
+    print("\nRegiones codificantes:")
     for i in range(len(analysis_result.regiones_codificantes)):
         region = analysis_result.regiones_codificantes[i]
         print(
@@ -53,7 +53,7 @@ try:
         )
 
     # Mostrar regiones no codificantes
-    print("\\nRegiones no codificantes:")
+    print("\nRegiones no codificantes:")
     for i in range(len(analysis_result.regiones_no_codificantes)):
         region = analysis_result.regiones_no_codificantes[i]
         print(
@@ -62,7 +62,7 @@ try:
         )
 
     # Prueba con secuencia más larga
-    print("\\n=== SECUENCIA LARGA ===")
+    print("\n=== SECUENCIA LARGA ===")
     long_sequence = "ATGCATGCATGCATGCAT"
     print(f"Secuencia: {long_sequence}")
 
@@ -79,7 +79,7 @@ try:
     print(f"Probabilidad total: {long_prob_total:.8f}")
 
     # Probar método con parámetros de salida
-    print("\\n=== MÉTODO CON PARÁMETROS DE SALIDA ===")
+    print("\n=== MÉTODO CON PARÁMETROS DE SALIDA ===")
     estados_out = HMMmethodsDynamic.StringVector()
     probs_out = HMMmethodsDynamic.DoubleVector()
 
@@ -93,7 +93,7 @@ try:
         f"Probabilidades (método alternativo): {[f'{p:.4f}' for p in probs_out_list]}"
     )
 
-    print("\\n🎉 ¡Todas las pruebas completadas exitosamente!")
+    print("\n🎉 ¡Todas las pruebas completadas exitosamente!")
 
 except ImportError as e:
     print(f"❌ Error importando la librería: {e}")
