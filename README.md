@@ -19,7 +19,7 @@ sudo apt install swig g++ python3-dev
 
 ---
 
-## ⚙️ Generar Wrapper
+## ⚙️ 1. Generar Wrapper con SWIG
 
 Ejecuta el siguiente comando para generar los archivos de interfaz entre C++ y Python:
 
@@ -34,27 +34,37 @@ Esto generará:
 
 ---
 
-## 🛠️ Compilar Wrapper
+## 🛠️ 2. Compilar tu código fuente en C++
 
-Compila el archivo generado por SWIG:
+Compila la implementación principal de tu librería:
 
 ```bash
-g++ -O2 -fPIC -c HMMmethodsDynamic_wrap.cxx -I/usr/include/python3.10
+g++ -O2 -fPIC -c HMMmethods.cpp -std=c++11
 ```
 
 ---
 
-## 📚 Crear Biblioteca Compartida
+## 🛠️ 3. Compilar el Wrapper generado por SWIG
+
+Compila el archivo de _wrapper_ generado:
+
+```bash
+g++ -O2 -fPIC -c HMMmethodsDynamic_wrap.cxx -I/usr/include/python3.10 -std=c++11
+```
+
+---
+
+## 📚 4. Enlazar ambos objetos en la Biblioteca Compartida
 
 Crea la librería compartida que Python podrá importar como módulo:
 
 ```bash
-g++ -shared HMMmethodsDynamic_wrap.o -o _HMMmethodsDynamic.so
+g++ -shared HMMmethods.o HMMmethodsDynamic_wrap.o -o _HMMmethodsDynamic.so
 ```
 
 ---
 
-## 🧪 Probar en Python
+## 🧪 5. Probar en Python
 
 Ejecuta el script de prueba:
 
@@ -73,4 +83,14 @@ import HMMmethodsDynamic
 ## 🚀 Notas
 
 - Asegúrate de que la versión de Python usada en la compilación coincide con la de ejecución (`python3-config --includes` puede ayudarte a obtener el path correcto).
+- Usa `-std=c++11` (o superior) si tu código requiere características modernas de C++.
 - Si planeas distribuir la librería, considera automatizar la compilación con un `Makefile` o `setup.py`.
+
+```
+
+👉 ¿Quieres que te arme también el **Makefile** para que solo corras `make` y se construya todo automáticamente?
+```
+
+```
+
+```
